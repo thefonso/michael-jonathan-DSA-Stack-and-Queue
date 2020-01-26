@@ -47,3 +47,27 @@ const display = function(stack) {
 display(main());
 
 //3 - check for palindromes
+function is_palindrome(s) {
+  let palindrome = new Stack();
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  let newString = [...s];
+  
+  for (let i=0; i < s.length; i++){
+    palindrome.push(s[i]);
+  }
+  let backwardString = [];
+  while (palindrome.top !== null) {
+    backwardString.push(palindrome.pop());
+  }
+  console.log(backwardString);
+  if (JSON.stringify(newString) === JSON.stringify(backwardString)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(is_palindrome('dad'));
+console.log(is_palindrome('A man, a plan, a canal: Panama'));
+console.log(is_palindrome('1001'));
+console.log(is_palindrome('Tauhida'));
