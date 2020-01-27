@@ -142,3 +142,43 @@ starTrekQ.dequeue();
 starTrekQ.dequeue();
 console.log('dequeued' , starTrekQ);
 
+//9 - Square Dance pairings
+let mDancers = new Queue();
+mDancers.enqueueD('Frank');
+mDancers.enqueueD('John');
+mDancers.enqueueD('Sherlock');
+mDancers.enqueueD('David');
+mDancers.enqueueD('Christopher');
+
+let fDancers = new Queue();
+fDancers.enqueueD('Jane');
+fDancers.enqueueD('Madonna');
+fDancers.enqueueD('Beyonce');
+console.log(fDancers);
+console.log(mDancers);
+function SquareDance(qM, qF) {
+  while (qM.first && qF.first) {
+    console.log(`${qF.first.value} is dancing with ${qM.first.value}`);
+    qM.dequeue();
+    qF.dequeue();
+  }
+  if(!qM.first) {
+    let currentFemale = qF.first;
+    while (currentFemale) {
+      console.log(`${currentFemale.value} is waiting to dance.`);
+      currentFemale = currentFemale.next;
+    }
+  }
+
+  if(!qF.first) {
+    let currentMale = qM.first;
+    while (currentMale) {
+      console.log(`${currentMale.value} is waiting to dance.`);
+      currentMale = currentMale.next;
+    }
+  }
+}
+
+SquareDance(mDancers, fDancers);
+
+// return f/m

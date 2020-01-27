@@ -20,12 +20,13 @@ class Queue {
       this.last.next.prev = previousLast;
     }
     this.last = node;
+    this.last.next = null;
   }
   dequeueD() {
     if (this.first === null) {
       return;
     }
-    
+
     let node = this.first;
     this.first = this.first.next;
     this.first.prev = null;
