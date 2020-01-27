@@ -121,17 +121,18 @@ peekQ(starTrekQ);
 
 function isEmptyQ(q) {
   if (!q.first){
-    console.log('this queue is empty')
-  } else (console.log('this queue is NOT empty'))
+    console.log('this queue is empty');
+  } else (console.log('this queue is NOT empty'));
 }
 isEmptyQ(starTrekQ);
 
 function displayQ(q) {
-  while (q.first !== null) {
-    console.log('this is the queue ', q.first.value);
-    q.first = q.first.next;
+  let firstVal = q.first;
+  while (firstVal !== null) {
+    console.log('this is the queue ', firstVal.value);
+    firstVal = firstVal.next;
   }
-  if (q.first === null) {
+  if (firstVal === null) {
     console.log('End of queue');
   }
 }
