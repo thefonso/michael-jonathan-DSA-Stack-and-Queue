@@ -24,7 +24,7 @@ class Queue {
       return;
     }
     
-    const node = this.first;
+    let node = this.first;
     this.first = this.first.next;
 
     if (node === this.last) {
