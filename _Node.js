@@ -1,8 +1,7 @@
 class _Node {
-  constructor(data, next, prev) {
+  constructor(data,next) {
     this.data = data;
     this.next = next;
-    this.prev = prev;
   }
 }
 

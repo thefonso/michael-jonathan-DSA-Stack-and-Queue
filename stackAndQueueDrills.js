@@ -137,6 +137,7 @@ function displayQ(q) {
   }
 }
 displayQ(starTrekQ);
+
 starTrekQ.dequeue();
 starTrekQ.dequeue();
 console.log('dequeued' , starTrekQ);
