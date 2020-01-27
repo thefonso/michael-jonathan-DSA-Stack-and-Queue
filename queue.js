@@ -1,5 +1,5 @@
 const _Node = require('./_queueNode');
-
+const _dNode = require('./_qDoubleNode');
 class Queue {
   constructor() {
     this.first = null;
