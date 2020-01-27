@@ -81,13 +81,17 @@ function sortStack(stack) {
 
   while (stack.top) {
     highestNum = stack.pop();
-
     while (sortedStack.top && sortedStack.top.data > highestNum) {
       stack.push(sortedStack.pop());
     }
     sortedStack.push(highestNum);
   }
-  return sortedStack;
+
+  while(sortedStack.top) {
+    stack.push(sortedStack.pop());
+  }
+  
+  return stack;
 }
 
 
@@ -102,7 +106,7 @@ const test = function () {
   return testStack;
 };
 
-console.log('test stack', test());
+console.log('sort numbers: ', sortStack(test()));
 console.log('sort stack ', sortStack(main()));
 
 //6 - Create a Queue using Singly Linked Lists
@@ -182,3 +186,28 @@ function SquareDance(qM, qF) {
 SquareDance(mDancers, fDancers);
 
 // return f/m
+
+//10 - Ophidian Bank
+let testCustomers = new Queue();
+for (let i = 0; i < 20; i++) {
+  testCustomers.enqueue(Math.random());
+}
+
+function ophidian(queue) {
+  if (!queue.first) {
+    console.log('Are we even open?');
+  }
+  while (queue.first) {
+    if (Math.random() <= .25) {
+      queue.dequeue();
+      queue.enqueue(Math.random());
+      console.log('Sorry... back of the line with you!'); 
+    } else {
+      console.log('Pleasure serving you, next in line!');
+      queue.dequeue();
+    }
+  }
+  console.log('I guess it\'s break time!');
+}
+
+ophidian(testCustomers);
